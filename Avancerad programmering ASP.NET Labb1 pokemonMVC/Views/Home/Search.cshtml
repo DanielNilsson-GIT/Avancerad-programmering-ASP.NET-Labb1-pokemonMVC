@@ -1,0 +1,23 @@
+﻿u
+
+<h1>Resultat</h1>
+
+@if (Model == null || Model.Count() == 0)
+{
+    <h1>Filmen huttades ICKE</h1>
+}
+else
+{
+    @foreach (var movie in Model)
+    {
+
+        <p>Titel: @movie.Title</p>
+        <p>Id: @movie.imdbID</p>
+        <p>Release Year: @movie.Year</p>
+        <p><img src="@movie.Poster" /></p>
+    }
+
+    
+}
+
+<a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Go back</a>
