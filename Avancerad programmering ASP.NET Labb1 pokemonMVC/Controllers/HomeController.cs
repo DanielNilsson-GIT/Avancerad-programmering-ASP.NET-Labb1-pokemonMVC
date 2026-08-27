@@ -1,4 +1,5 @@
 using Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Models;
+using Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,9 +7,16 @@ namespace Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IPokemonService _pokemonService;
+        
+        public HomeController(IPokemonService pokemonService)
         {
-            return View();
+            _pokemonService = pokemonService;
+        }
+        public async Task<IActionResult> Index()
+        {
+            var pokemon = await _pokemonService.GetAllPokemons();
+            return View(pokemon);
         }
 
         public IActionResult Privacy()
