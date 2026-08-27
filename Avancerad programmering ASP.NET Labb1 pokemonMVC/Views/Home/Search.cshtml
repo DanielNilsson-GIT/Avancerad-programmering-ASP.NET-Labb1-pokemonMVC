@@ -1,23 +1,26 @@
-﻿
-@* 
-<h1>Resultat</h1>
+﻿@model Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Models.Pokemon;
 
-@if (Model == null || Model.Count() == 0)
+
+<h1>Results</h1>
+
+@if (Model == null)
 {
-    <h1>Filmen huttades ICKE</h1>
+    <h1>No pokemon found</h1>
 }
 else
 {
-    @foreach (var movie in Model)
-    {
 
-        <p>Titel: @movie.Title</p>
-        <p>Id: @movie.imdbID</p>
-        <p>Release Year: @movie.Year</p>
-        <p><img src="@movie.Poster" /></p>
-    }
+    <p><img src="@Model.sprites.other.officialartwork.frontshiny" /></p>
+    <p>Name: @Model.Name</p>
+    <p>Id: @Model.id</p>
+    <p>Weight: @Model.Weight</p>
+    <p>
+        Moves:@foreach (var move in Model.Moves)
+        {
+            <p>@move.move.Name</p>
+        }
+    </p>
 
-    
 }
 
-<a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Go back</a> *@
+<a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Go back</a>

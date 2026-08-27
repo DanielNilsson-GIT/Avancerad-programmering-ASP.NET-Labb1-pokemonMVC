@@ -2,9 +2,9 @@
 
 namespace Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Models
 {
-    public class Moves
+    public class Movedetails
     {
-        [JsonPropertyName("name")]
-        public string Name { get; set; } = string.Empty;
+        [JsonPropertyName("move")]
+        public Moves move { get; set; }
     }
 }

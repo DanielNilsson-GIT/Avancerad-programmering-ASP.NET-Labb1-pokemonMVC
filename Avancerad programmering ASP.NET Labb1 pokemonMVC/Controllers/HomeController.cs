@@ -30,9 +30,10 @@ namespace Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Search()
+        public async Task<IActionResult> Search(string name)
         {
-            return View(Search);
+            var result = await _pokemonService.GetPokemon(name);
+            return View(result);
         }
     }
 }
