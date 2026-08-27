@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Models.Pokemon>;
+@{
     ViewData["Title"] = "Home Page";
 }
 <div class="text-center">
@@ -7,6 +8,17 @@
         <input type="text" name="name" />
         <button type="submit">Search</button>
     </form>
+
+    @foreach(var pokemon in Model)
+    {
+        <a>
+        @pokemon.Name
+            <br />
+        </a>
+        
+    }
+    <button>Show next 20</button>
+
 </div>
 
 

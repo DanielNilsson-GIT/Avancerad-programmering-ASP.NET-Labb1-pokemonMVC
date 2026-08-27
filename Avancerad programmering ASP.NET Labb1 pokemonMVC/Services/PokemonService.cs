@@ -1,5 +1,6 @@
 ﻿using Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Models;
 using System.Text.Json;
+using static System.Net.WebRequestMethods;
 
 namespace Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Services
 {
@@ -14,12 +15,13 @@ namespace Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Services
 
         public Task<List<Pokemon>> GetPokemon(string name)
         {
-            var baseUrl = name;
+            var baseUrl = "https://pokeapi.co/api/v2/";
+            return null;
         }
 
         public async Task<List<Pokemon>> GetAllPokemons()
         {
-            var url = "här anropar jag alla pokemons namn och ska sedan visa dom i en lista";
+            var url = "https://pokeapi.co/api/v2/pokemon";
 
             try
             {
@@ -38,7 +40,7 @@ namespace Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Services
 
         internal class PokemonApiResponse()
         {
-            [System.Text.Json.Serialization.JsonPropertyName("??")]
+            [System.Text.Json.Serialization.JsonPropertyName("results")]
             public List<Pokemon>? Result { get; set; }
         }
 
