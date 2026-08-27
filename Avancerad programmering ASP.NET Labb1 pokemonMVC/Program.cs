@@ -1,7 +1,15 @@
+using Avancerad_programmering_ASP.NET_Labb1_pokemonMVC.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<IPokemonService, PokemonService>(client =>
+{
+    client.BaseAddress = new Uri("https://pokeapi.co/api/v2/pokemon/");
+    client.Timeout = TimeSpan.FromSeconds(10);
+
+});
 
 var app = builder.Build();
 
