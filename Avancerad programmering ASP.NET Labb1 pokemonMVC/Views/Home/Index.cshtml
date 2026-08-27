@@ -11,10 +11,10 @@
 
     @foreach(var pokemon in Model)
     {
-        <a>
+        <a asp-action="Search" asp-controller="Home" asp-route-name="@pokemon.Name">
         @pokemon.Name
-            <br />
         </a>
+            <br />
         
     }
     <button>Show next 20</button>
